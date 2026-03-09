@@ -1,0 +1,14 @@
+{
+    "sobelVert": {
+        "mask": [
+            [-1, 0, 1],
+            [-2, 0, 2],
+            [-1, 0, 1]
+        ],
+
+        "dil_rate": 1,
+        "stride": 1,
+        "divide": 1,
+        "activation": "relu"
+    }
+}

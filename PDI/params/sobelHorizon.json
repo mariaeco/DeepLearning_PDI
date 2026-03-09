@@ -1,0 +1,13 @@
+{
+    "sobelHorizon": {
+        "mask": [
+            [-1, -2, -1],
+            [0, 0, 0],
+            [1, 2, 1]
+        ],
+        "dil_rate": 1,
+        "stride": 1,
+        "divide": 1,
+        "activation": "relu"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "box1x10": {
+        "mask": [
+            [10,10,10,10,10,10,10,10,10,10]
+        ],
+        "dil_rate": 1,
+        "stride": 1,
+        "divide": 100,
+        "activation": "relu"
+    }
+}
