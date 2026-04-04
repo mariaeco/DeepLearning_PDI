@@ -1,4 +1,15 @@
 venv/
 DeepLearning/FFashion_mnist/
 DeepLearning/IMDB_data/
-DeepLearning/cifar_data/
+DeepLearning/cifar_data/DeepLearning/Fashion_mnist/fashion-mnist_train.csv
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
+*.csv
+*.CR2
+*.png
+*.PNG
+DeepLearning/Fashion_mnist/fashion-mnist_train.csv
+DeepLearning/cifar_data/data_batch.zip
+*.pdf
