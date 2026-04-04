@@ -13,3 +13,4 @@ DeepLearning/cifar_data/DeepLearning/Fashion_mnist/fashion-mnist_train.csv
 DeepLearning/Fashion_mnist/fashion-mnist_train.csv
 DeepLearning/cifar_data/data_batch.zip
 *.pdf
+__pycache__/
