@@ -1,3 +1,14 @@
+from __future__ import annotations
+import warnings
+from os import environ, listdir, makedirs, rename
+
+# Antes de carregar TensorFlow (MTCNN) e face_recognition: reduz ruído no terminal.
+environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "3")
+environ.setdefault("TF_ENABLE_ONEDNN_OPTS", "0")
+environ.setdefault("GRPC_VERBOSITY", "ERROR")
+warnings.filterwarnings("ignore", category=UserWarning, module="face_recognition_models")
+
+
 from PIL import Image
 from os import listdir
 from os.path import isdir, join
@@ -6,6 +17,8 @@ import numpy as np
 import pandas as pd
 
 from keras_facenet import FaceNet
+
+
 
 
 def load_face(filename):
@@ -46,7 +59,6 @@ def load_dir(directory_src):
 
 
 
-
 if __name__ == "__main__":
     trainX, trainy= load_dir(directory_src='faces/')
 
@@ -57,12 +69,11 @@ if __name__ == "__main__":
     df['target'] = trainy
     df.to_csv('faces.csv', index=False)
     
-
+    
+    #Para validação - usar em main.py (acuracia dos modelos)
     valX, valy= load_dir(directory_src='faces_validation/')
-
     embedder = FaceNet()
     embeddingsVal = embedder.embeddings(valX)
-
     df_val = pd.DataFrame(data=embeddingsVal)
     df_val['target'] = valy
     df_val.to_csv('faces_validation.csv', index=False)

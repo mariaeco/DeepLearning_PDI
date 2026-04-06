@@ -1,3 +1,15 @@
+from __future__ import annotations
+
+import warnings
+from os import environ, listdir, makedirs, rename
+
+# Antes de carregar TensorFlow (MTCNN) e face_recognition: reduz ruído no terminal.
+environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "3")
+environ.setdefault("TF_ENABLE_ONEDNN_OPTS", "0")
+environ.setdefault("GRPC_VERBOSITY", "ERROR")
+warnings.filterwarnings("ignore", category=UserWarning, module="face_recognition_models")
+
+
 import argparse
 from pathlib import Path
 
