@@ -71,10 +71,10 @@ if __name__ == "__main__":
     
     
     #Para validação - usar em main.py (acuracia dos modelos)
-    valX, valy= load_dir(directory_src='faces_validation/')
-    embedder = FaceNet()
-    embeddingsVal = embedder.embeddings(valX)
-    df_val = pd.DataFrame(data=embeddingsVal)
-    df_val['target'] = valy
-    df_val.to_csv('faces_validation.csv', index=False)
+    # valX, valy= load_dir(directory_src='faces_validation/')
+    # embedder = FaceNet()
+    # embeddingsVal = embedder.embeddings(valX)
+    # df_val = pd.DataFrame(data=embeddingsVal)
+    # df_val['target'] = valy
+    # df_val.to_csv('faces_validation.csv', index=False)
     

@@ -124,4 +124,4 @@ if __name__ == "__main__":
 
     #Para validação - usar em main.py (acuracia dos modelos)
     #mas aqui é acuracia dos embeddings do keras_facenet e não por meu treinamento
-    img_processing.load_dir('imgs_validation/','faces_validation/')
+    # img_processing.load_dir('imgs_validation/','faces_validation/')

@@ -214,19 +214,33 @@ def detectar_faces(
     caixas = []
     w, h = tamanho
     for r in resultados:
-        x, y, bw, bh = r["box"]
-        x, y = abs(x), abs(y)
-        x2, y2 = x + bw, y + bh
-        x = max(0, x)
-        y = max(0, y)
-        x2 = min(array_img.shape[1], x2)
-        y2 = min(array_img.shape[0], y2)
-        if x2 <= x or y2 <= y:
-            continue
-        face = array_img[y:y2, x:x2]
+        x1, y1, width, height = r["box"]
+        x1, y1 = abs(x1), abs(y1)
+        x2, y2 = x1 + width, y1 + height
+
+        # Expande a caixa: mais em cima (cabelo), pouco nas laterais e embaixo
+        h_img, w_img = array_img.shape[0], array_img.shape[1]
+        dy_topo = int(height * 0.35)
+        dx_lado = int(width * 0.10)
+        dy_baixo = int(height * 0.05)
+        x1 = max(0, x1 - dx_lado)
+        x2 = min(w_img, x2 + dx_lado)
+        y1 = max(0, y1 - dy_topo)
+        y2 = min(h_img, y2 + dy_baixo)
+
+        # x, y, bw, bh = r["box"]
+        # x, y = abs(x), abs(y)
+        # x2, y2 = x + bw, y + bh
+        # x = max(0, x)
+        # y = max(0, y)
+        # x2 = min(array_img.shape[1], x2)
+        # y2 = min(array_img.shape[0], y2)
+        # if x2 <= x or y2 <= y:
+        #     continue
+        face = array_img[y1:y2, x1:x2]
         face_img = Image.fromarray(face).resize((w, h))
         faces.append(np.asarray(face_img))
-        caixas.append((x, y, x2, y2))
+        caixas.append((x1, y1, x2, y2))
 
     return imagem, faces, caixas
 

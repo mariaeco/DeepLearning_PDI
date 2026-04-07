@@ -22,7 +22,7 @@ from modelo_dense_imagens import (
 if __name__ == "__main__":
     modelo_path = OUT_MODEL
     meta_path = OUT_META
-    limiar = 0.9
+    limiar = 0.5
     mostrar_plot = True
     imagem = None  # ex.: "minha_foto.jpg" ou None para abrir o seletor
 
